@@ -135,7 +135,21 @@
 \tableofcontents
 \setcounter{page}{1}
 \pagebreak
-\section{Deducción de función de densidad}
+
+\section{Introducción}
+
+
+\section{Función de densidad}
+
+$$L(x|\mu, b)=\frac{1}{2b}e^\frac{-|x-\mu|}{b}$$
+
+En esta distribución, $\mu$ es un parámetro de localización, mientras que $b$ es un parámetro de escala. 
+
+Podemos ver que la integral en la recta real de la función de densidad es 1: 
+
+$$\int_{-\infty}^{\infty} L(x|\mu, b)dx = \int_{-\infty}^{\infty} \frac{1}{2b}e^\frac{-|x-\mu|}{b}dx = 
+\frac{1}{2b}\int_{-\infty}^{\infty}e^\frac{-|x-\mu|}{b}dx = 
+\frac{1}{2b}( \int_{-\infty}^{\mu}e^\frac{-\mu+x}{b}dx + \int_{\mu}^{\infty}e^\frac{-x+\mu}{b}dx ) = \frac{1}{2b}2b = 1$$
 
 \section{Función generatriz de momentos}
 
@@ -143,7 +157,11 @@
 La función generatriz de momentos se define como sigue:
 $$\phi(t)=E[e^{-tX}]$$
 
+Que en nuestro caso da lugar a: 
+
 \subsection{Esperanza}
+
+Para calcular la esperanza de la función de distribución, tomamos el momento de orden 1 y evaluamos en $t = 0$. 
 
 \subsection{Varianza}
 
@@ -152,21 +170,21 @@ $$\phi(t)=E[e^{-tX}]$$
 
 \subsection{Insesgadez}
 \addtocounter{def}{1}
-\emph{Definición \arabic{def}}: Se denomina sesgo de un estimador a la diferencia entre la esperanza del estimador y el verdadero valor del parámetro a estimar. Un estimador es insesgado si su sesgo es nulo por ser su esperanza igual al parámetro que se desea estimar.
+\emph{Definición \arabic{def}}: Se denomina sesgo de un estimador a la diferencia entre la esperanza del estimador y el verdadero valor del parámetro a estimar. Diremos que un estimador es insesgado si su sesgo es nulo, por ser su esperanza igual al parámetro que se desea estimar.
 
 \subsection{Eficiencia}
 \addtocounter{def}{1}
-\emph{Definición \arabic{def}}: Un estimador $\hat{\theta}_1$ se dice que es más eficiente que otro estimador $\hat{\theta}_2$, si la varianza del primero es menor que la del segundo $Var(\hat{\theta}_1)<Var(\hat{\theta}_2)$.
+\emph{Definición \arabic{def}}: Un estimador $\hat{\theta}_1$ se dice que es más eficiente que otro estimador $\hat{\theta}_2$, si la varianza del primero es menor que la del segundo, esto es,  $Var(\hat{\theta}_1)<Var(\hat{\theta}_2)$.
 
 \subsection{Consistencia}
 \addtocounter{teo}{1}
-\emph{Teorema \arabic{teo}}: Una condición suficiente para que $\hat{\theta}$ sea un estimador consistente es que dicho estimador tiene que verificar:
+\emph{Teorema \arabic{teo}}: Una condición suficiente para que $\hat{\theta}$ sea un estimador consistente es que dicho estimador tiene que verificar las dos condiciones que siguen:
 
 \begin{description}
 \item $E[\hat{\theta}] \rightarrow \theta$
 \item $Var(\hat{\theta}) \rightarrow 0$
 \end{description}
-Con $n \rightarrow \infty$.
+Cuando$n \rightarrow \infty$.
 
 \subsection{Suficiencia}
 
