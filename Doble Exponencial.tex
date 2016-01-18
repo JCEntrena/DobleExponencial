@@ -172,6 +172,10 @@ $\displaystyle \phi(t) = E[e^{tx}] = \int_{-\infty}^{\infty} e^{tx}L(x|\mu, b)dx
 
 Para calcular la esperanza de la función de distribución, tomamos el momento de orden 1 y evaluamos en $t = 0$. 
 
+$$\frac{\partial\phi}{\partial t} = \frac{e^{t\mu} (-t^2 b^2\mu + \mu + 2b^2t)}{1-b^2 t^2}$$
+Con $t = 0$, se tiene: 
+$$E[X]=\mu$$
+
 \subsection{Varianza}
 
 La varianza se puede expresar como $\sigma^2 = E[X^2] - E[X]^2$ por lo que es tan solo calcular el momento de
