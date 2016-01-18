@@ -63,8 +63,8 @@
 
 % Install texlive-science
 % Para algoritmos
-%\usepackage{algorithm}
-%\usepackage{algorithmic}
+\usepackage{algorithm}
+\usepackage{algorithmic}
 \usepackage{amsthm}
 
 % Para matrices
@@ -147,17 +147,25 @@ En esta distribución, $\mu$ es un parámetro de localización, mientras que $b$
 
 Podemos ver que la integral en la recta real de la función de densidad es 1: 
 
-$$\int_{-\infty}^{\infty} L(x|\mu, b)dx = \int_{-\infty}^{\infty} \frac{1}{2b}e^\frac{-|x-\mu|}{b}dx = 
+$$\int_{-\infty}^{\infty} L(x|\mu, b)dx = \int_{-\infty}^{\infty} \frac{1}{2b}e^\frac{-|x-\mu|}{b}dx =
 \frac{1}{2b}\int_{-\infty}^{\infty}e^\frac{-|x-\mu|}{b}dx = 
-\frac{1}{2b}\left( \int_{-\infty}^{\mu}e^\frac{-\mu+x}{b}dx + \int_{\mu}^{\infty}e^\frac{-x+\mu}{b}dx \right) = \frac{1}{2b}2b = 1$$
+\frac{1}{2b}\left( \int_{-\infty}^{\mu}e^\frac{-\mu+x}{b}dx + \int_{\mu}^{\infty}e^\frac{-x+\mu}{b}dx \right) =
+\frac{1}{2b}2b = 1$$
 
 \section{Función generatriz de momentos}
 
 
 La función generatriz de momentos se define como sigue:
-$$\phi(t)=E[e^{-tX}]$$
+$$\phi(t)=E[e^{tX}]$$
 
-Que en nuestro caso da lugar a: 
+Que en nuestro caso da lugar a:\\
+$\displaystyle \phi(t) = E[e^{tx}] = \int_{-\infty}^{\infty} e^{tx}L(x|\mu, b)dx =
+%\int_{-\infty}^{\infty} e^{tx}\frac{1}{2b}e^\frac{-|x-\mu|}{b}dx = 
+%\frac{1}{2b}\int_{-\infty}^{\infty} e^{tx}e^\frac{-|x-\mu|}{b}dx = \\
+%\frac{1}{2b}\left( \int_{-\infty}^{\mu} e^{tx} e^\frac{-\mu+x}{b}dx + \int_{\mu}^{\infty} e^{tx} e^\frac{-x+\mu}{b}dx \right) =
+%\frac{1}{2b}2b =
+% Hay una justificación en los puntos 8 y 24 de http://www.math.uah.edu/stat/special/Laplace.html
+[\cdots] = \frac {e^{t\mu}} {1-b^2t^2}$
 
 \subsection{Esperanza}
 
