@@ -29,19 +29,18 @@
 \usepackage{helvet}
 \renewcommand{\familydefault}{\sfdefault}
 \usepackage[protrusion=true,expansion=true]{microtype} % Better typography
-\usepackage{graphicx} % Required for including pictures
 \usepackage[usenames,dvipsnames]{color} % Coloring code
-\usepackage{wrapfig} % Allows in-line images
 \usepackage[utf8]{inputenc}
 \usepackage{enumerate}
 \usepackage{enumitem}
 
+% Márgenes
+\usepackage{anysize}
+\marginsize{3cm}{3cm}{2.5cm}{2.5cm}
+
 % Imágenes
 \usepackage{graphicx} 
-
-\usepackage{amsmath}
-% para importar svg
-%\usepackage[generate=all]{svgfig}
+\usepackage{wrapfig} % Allows in-line images
 
 % sudo apt-get install texlive-lang-spanish
 \usepackage[spanish]{babel} % English language/hyphenation
@@ -54,43 +53,28 @@
 \addto\shorthandsspanish{\let\esperiod\es@period@code}
 \makeatother
 
-\usepackage{longtable}
-\usepackage{tabu}
-\usepackage{supertabular}
-
-\usepackage{multicol}
-\newsavebox\ltmcbox
-
-% Install texlive-science
-% Para algoritmos
-\usepackage{algorithm}
-\usepackage{algorithmic}
-\usepackage{amsthm}
-
-% Para matrices
-\usepackage{amsmath}
-
 % Símbolos matemáticos
+\usepackage{amsmath}
 \usepackage{amssymb}
 \usepackage{accents}
 \let\oldemptyset\emptyset
 \let\emptyset\varnothing
 
+% Hipervínculos
 \usepackage[hidelinks]{hyperref}
 
 \usepackage[section]{placeins} % Para gráficas en su sección.
 \usepackage[T1]{fontenc} % Required for accented characters
-\usepackage{tikz}
 \newenvironment{allintypewriter}{\ttfamily}{\par}
 \setlength{\parindent}{0pt}
 \parskip=8pt
 \linespread{1.05} % Change line spacing here, Palatino benefits from a slight increase by default
 
+% Contadores
+\newcounter{def}
+\newcounter{teo}
+
 \makeatletter
-\renewcommand\@biblabel[1]{\textbf{#1.}} % Change the square brackets for each bibliography item from '[1]' to '1.'
-\renewcommand{\@listI}{\itemsep=0pt} % Reduce the space between items in the itemize and enumerate environments and the bibliography
-\newcommand{\imagen}[2]{\begin{center} \includegraphics[width=90mm]{#1} \\#2 \end{center}}
-\newcommand{\RFC}[1]{\href{https://www.ietf.org/rfc/rfc#1.txt}{RFC-#1}}
 
 \renewcommand{\maketitle}{ % Customize the title - do not edit title and author name here, see the TITLE block below
 \begin{center} % Center align
@@ -122,18 +106,10 @@
 \date{\today} % Date
 
 %----------------------------------------------------------------------------------------
-%\setcounter{secnumdepth}{3}
-\usepackage{anysize}
-\marginsize{3cm}{3cm}{2.5cm}{2.5cm}
-
-\newcounter{def}
-\newcounter{teo}
-
 
 \begin{document}
 \maketitle
 \tableofcontents
-\setcounter{page}{1}
 \pagebreak
 
 \section{Introducción}
