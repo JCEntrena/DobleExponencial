@@ -219,13 +219,19 @@ $\hat{\theta}_2$, si la varianza del primero es menor que la del segundo, esto e
 dicho estimador tiene que verificar las dos condiciones que siguen:
 
 \begin{description}
-\item $E[\hat{\theta}] \rightarrow \theta$
-\item $Var(\hat{\theta}) \rightarrow 0$
+	\item $E[\hat{\theta}] \rightarrow \theta$
+	\item $Var(\hat{\theta}) \rightarrow 0$
 \end{description}
+
 Cuando $n \rightarrow \infty$.
 
 \subsection{Suficiencia}
+\emph{Teorema \arabic{teo}}: Sean $X_1, X_2, ..., X_n$ variables aleatorias independientes con una función
+distribución de distribución conjunta $f(x_1, x_2, ..., x_n | \theta)$ que depende del parámetro $\theta$.
 
+Entonces se dice que el estadístico $u(x_1, ..., x_n)$ es suficiente para $\theta$ si y solamente si
+$f(x_1, x_2,\dots, x_n | \theta)$ se puede factorizar de la siguiente forma:
 
+$$ f(x_1,...,x_n| \theta) = \Phi(u(x_1, ..., x_n) | \theta)\cdot h(x_1, ..., x_n) $$
 
 \end{document}
