@@ -138,6 +138,7 @@
 
 \section{Introducción}
 
+La distribución doble exponencial, también conocida como distribución de Laplace en honor al matemático Pierre-Simon Laplace, es una densidad de probabilidad continua con dominio en la recta real. 
 
 \section{Función de densidad}
 
@@ -178,11 +179,19 @@ $\displaystyle \phi(t) = E[e^{tx}] = \int_{-\infty}^{\infty} e^{tx}L(x|\mu, b)dx
 
 Para calcular la esperanza de la función de distribución, tomamos el momento de orden 1 y evaluamos en $t = 0$. 
 
+$$\frac{\partial\phi}{\partial t} = \frac{e^{t\mu} (-t^2 b^2\mu + \mu + 2b^2t)}{(1-b^2 t^2)^2}$$
+Con $t = 0$, se tiene: 
+$$E[X]=\mu$$
+
 \subsection{Varianza}
 
-La varianza se puede expresar como $\sigma^2 = E[X^2] - E[X]^2$ por lo que es tan solo calcular el momento de
-orden 2 usando la función generatriz de momentos, evaluamos la expresión en t = 0 y tenemos que:
+La varianza se puede expresar como $\sigma^2 = E[X^2] - E[X]^2$. Conocido el momento de orden 1, calculamos el de orden 2 usando la función generatriz de momentos, y nuevamente evaluamos la expresión en $t = 0$.
 
+$$\frac{\partial^2\phi}{\partial t^2} = -\frac{e^{t\mu}(\mu^2(b^2 t^2 -1)^2 -4\mu b^2 t(b^2 t^2 -1)+2b^2(3b^2 t^2+1))}{(b^2 t^2 -1)^3}$$
+Evaluando en $t = 0$ tenemos
+$$E[X^2]=2b^2 + \mu^2$$
+Y la expresión de la varianza queda de la siguiente forma:
+$$\sigma^2=2b^2 + \mu^2 - \mu^2=2b^2$$
 \section{Estimador máximo verosimil}
 
 \subsection{Insesgadez}
