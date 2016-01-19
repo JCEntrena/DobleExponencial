@@ -169,8 +169,8 @@ $\displaystyle \phi(t) = E[e^{tx}] = \int_{-\infty}^{\infty} e^{tx}L(x|\mu, b)dx
 \frac{1}{2b}\left( \int_{-\infty}^{\mu} e^\frac{-\mu+x(bt+1)}{b}dx + \int_{\mu}^{\infty} e^\frac{\mu+x(bt-1)}{b}dx \right) =
 \frac{1}{2b}\left( \int_{-\infty}^{\mu} e^\frac{-\mu+x(bt+1)}{b}dx + \int_{\mu}^{\infty} e^\frac{\mu+x(bt-1)}{b}dx \right) = \\
 \frac{1}{2b}\left( \frac{b}{bt+1} e^\frac{-\mu+x(bt+1)}{b} \Big|_{-\infty}^\mu +  \frac{b}{bt-1} e^\frac{\mu+x(bt-1)}{b} \Big|_\mu^\infty \right) =
-\frac{1}{2b}\left( \frac{b}{bt+1} e^{\mu t} - 1 + \frac{b}{bt-1} e^\frac{\mu+x(bt-1)}{b} \Big|^\infty - \frac{b}{bt-1} e^{\mu t} \right) =
-\frac{1}{2b}\left( e^{\mu t} \left(\frac{b}{bt+1} - \frac{b}{bt-1} \right) - 0 + \frac{b}{bt-1} e^\frac{\mu+x(bt-1)}{b} \Big|^\infty \right) =
+\frac{1}{2b}\left( \frac{b}{bt+1} e^{\mu t} - 0 + \frac{b}{bt-1} e^\frac{\mu+x(bt-1)}{b} \Big|^\infty - \frac{b}{bt-1} e^{\mu t} \right) =
+\frac{1}{2b}\left( e^{\mu t} \left(\frac{b}{bt+1} - \frac{b}{bt-1} \right) + \frac{b}{bt-1} e^\frac{\mu+x(bt-1)}{b} \Big|^\infty \right) =
 \frac{1}{2b}\left( e^{\mu t} \left(\frac{b}{bt+1} - \frac{b}{bt-1} \right) + \frac{b}{bt-1} e^\frac{\mu+x(bt-1)}{b} \Big|^\infty \right) = \\
 \frac{1}{2b}\left( e^{\mu t} b \left(\frac{-2}{b^2t^2-1} \right) + \frac{b}{bt-1} e^\frac{\mu+x(bt-1)}{b} \Big|^\infty \right) =
 \frac {e^{t\mu}} {1-b^2t^2} + \frac{b}{bt-1} e^\frac{\mu+x(bt-1)}{b} \Big|^\infty$ % El último sumando es 0 y no lo veo
@@ -225,5 +225,7 @@ dicho estimador tiene que verificar las dos condiciones que siguen:
 Cuando $n \rightarrow \infty$.
 
 \subsection{Suficiencia}
+
+
 
 \end{document}
