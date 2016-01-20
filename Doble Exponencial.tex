@@ -138,23 +138,15 @@ $$\int_{-\infty}^{\infty} L(x|\mu, b)dx = \int_{-\infty}^{\infty} \frac{1}{2b}e^
 
 
 La función generatriz de momentos se define como sigue:
-$$\phi(t)=E[e^{tX}]$$
+$$\phi(t)=E[e^{tX}], \quad t \in \left(\frac{-1}{b}, \frac{1}{b} \right)$$
 
 Que en nuestro caso da lugar a:\\
 % Justificación encontrada en los puntos 7 y 24 de http://www.math.uah.edu/stat/special/Laplace.html
-$\displaystyle \phi(t) = E[e^{tx}] = \int_{-\infty}^{\infty} e^{tx}L(x|\mu, b)dx =
-\int_{-\infty}^{\infty} e^{tx}\frac{1}{2b}e^\frac{-|x-\mu|}{b}dx = 
-\frac{1}{2b}\int_{-\infty}^{\infty} e^{tx}e^\frac{-|x-\mu|}{b}dx = \\
+$\displaystyle \phi(t) = \int_{-\infty}^{\infty} e^{tx}\frac{1}{2b}e^\frac{-|x-\mu|}{b}dx = 
 \frac{1}{2b}\left( \int_{-\infty}^{\mu} e^{tx} e^\frac{-\mu+x}{b}dx + \int_{\mu}^{\infty} e^{tx} e^\frac{-x+\mu}{b}dx \right) =
-\frac{1}{2b}\left( \int_{-\infty}^{\mu} e^\frac{-\mu+x+btx}{b}dx + \int_{\mu}^{\infty} e^\frac{-x+\mu+btx}{b}dx \right) = \\ 
-\frac{1}{2b}\left( \int_{-\infty}^{\mu} e^\frac{-\mu+x(bt+1)}{b}dx + \int_{\mu}^{\infty} e^\frac{\mu+x(bt-1)}{b}dx \right) =
-\frac{1}{2b}\left( \int_{-\infty}^{\mu} e^\frac{-\mu+x(bt+1)}{b}dx + \int_{\mu}^{\infty} e^\frac{\mu+x(bt-1)}{b}dx \right) = \\
-\frac{1}{2b}\left( \frac{b}{bt+1} e^\frac{-\mu+x(bt+1)}{b} \Big|_{-\infty}^\mu +  \frac{b}{bt-1} e^\frac{\mu+x(bt-1)}{b} \Big|_\mu^\infty \right) =
-\frac{1}{2b}\left( \frac{b}{bt+1} e^{\mu t} - 0 + \frac{b}{bt-1} e^\frac{\mu+x(bt-1)}{b} \Big|^\infty - \frac{b}{bt-1} e^{\mu t} \right) =
-\frac{1}{2b}\left( e^{\mu t} \left(\frac{b}{bt+1} - \frac{b}{bt-1} \right) + \frac{b}{bt-1} e^\frac{\mu+x(bt-1)}{b} \Big|^\infty \right) =
-\frac{1}{2b}\left( e^{\mu t} \left(\frac{b}{bt+1} - \frac{b}{bt-1} \right) + \frac{b}{bt-1} e^\frac{\mu+x(bt-1)}{b} \Big|^\infty \right) = \\
-\frac{1}{2b}\left( e^{\mu t} b \left(\frac{-2}{b^2t^2-1} \right) + \frac{b}{bt-1} e^\frac{\mu+x(bt-1)}{b} \Big|^\infty \right) =
-\frac {e^{t\mu}} {1-b^2t^2} + \frac{b}{bt-1} e^\frac{\mu+x(bt-1)}{b} \Big|^\infty$ % El último sumando es 0 y no lo veo
+\frac{1}{2b} \bigg( \int_{-\infty}^{\mu} e^\frac{-\mu+x(bt+1)}{b}dx + \int_{\mu}^{\infty} e^\frac{\mu+x(bt-1)}{b}dx \bigg) =
+\frac{1}{2b} e^{\mu t} \left(\frac{b}{bt+1} - \frac{b}{bt-1} \right) = 
+\frac{1}{2b} e^{\mu t} \left(\frac{-2 b}{b^2t^2-1} \right) = \frac {e^{t\mu}} {1-b^2t^2}$
 
 \subsection{Esperanza}
 
