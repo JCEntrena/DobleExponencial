@@ -203,6 +203,10 @@ $$\hat{b} = \frac{\sum_{i=1}^{n}|x_i - \mu|}{n}$$
 y el verdadero valor del parámetro a estimar. Diremos que un estimador es insesgado si su sesgo es nulo, por ser
 su esperanza igual al parámetro que se desea estimar.
 
+Veamos que $E\left[\hat{\mu}\right]=\mu$
+
+$$E\left[\hat{\mu}\right] = E\left[\frac{\sum_{i=1}^{n}x_i}{n}\right] = \frac{1}{n}E\left[\sum_{i=1}^{n}x_i\right] = \frac{1}{n}n\mu = \mu $$
+
 \subsection{Eficiencia}
 \emph{Definición}: Un estimador $\hat{\theta}_1$ se dice que es más eficiente que otro estimador
 $\hat{\theta}_2$, si la varianza del primero es menor que la del segundo, esto es,  $Var(\hat{\theta}_1)<Var(\hat{\theta}_2)$.
