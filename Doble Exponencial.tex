@@ -199,13 +199,16 @@ $$\hat{\mu} = \frac{\sum_{i=1}^{n}x_i}{n}$$
 
 Calculamos ahora el estimador máximo verosímil para $b$. Para ello, tomamos el logaritmo de la función de verosimilitud, que no cambia el máximo de la función, y derivamos. 
 $$\frac{\partial \log L}{\partial b} = \log \left(\left(\frac{1}{2b}\right)^n 
-e^{\left(-\frac{\sum_{i=1}^{n}|x_i-\mu|}{b}\right)}\right)' = -\left(n\log 2b - \frac{\sum_{i=1}^{n}|x_i - \mu|}{b}\right)' = 
+e^{\left(-\frac{\sum_{i=1}^{n}|x_i-\mu|}{b}\right)}\right)' = -\left(n\log 2b + \frac{\sum_{i=1}^{n}|x_i - \mu|}{b}\right)' = 
 -\frac{n}{b} + \frac{\sum_{i=1}^{n}|x_i - \mu|}{b^2}$$
 
 Igualamos a 0 y tenemos que: 
 
 $$\frac{n}{b} = \frac{\sum_{i=1}^{n}|x_i - \mu|}{b^2} \iff b = \frac{\sum_{i=1}^{n}|x_i - \mu|}{n}$$
 
+Luego el estimador máximo verosímil es: 
+
+$$\hat{b} = \frac{\sum_{i=1}^{n}|x_i - \mu|}{n}$$
 
 \subsection{Insesgadez}
 \addtocounter{def}{1}
