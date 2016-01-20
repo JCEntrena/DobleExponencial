@@ -114,20 +114,25 @@
 
 \section{Introducción}
 
-La distribución doble exponencial, también conocida como distribución de Laplace en honor al matemático Pierre-Simon Laplace, es una densidad de probabilidad continua con dominio en la recta real. 
+La distribución doble exponencial, también conocida como distribución de Laplace en honor al matemático Pierre-Simon Laplace, es una densidad de probabilidad continua con dominio en la recta real. Se obtiene reflejando la distribución exponencial alrededor de su media. Su función de densidad se asemeja la de la distribución normal, pero como considera el valor absoluto y no el cuadrado, las colas de la distribución irán a $0$ más lentamente. 
 
 \section{Función de densidad}
+
+La función de densidad de la distribución doble exponencial es la siguiente: 
 
 $$L(x|\mu, b)=\frac{1}{2b}e^\frac{-|x-\mu|}{b}$$
 
 En esta distribución, $\mu$ es un parámetro de localización, mientras que $b$ es un parámetro de escala. 
 
-Podemos ver que la integral en la recta real de la función de densidad es 1: 
+Pese a sus similaridades con la distribución normal, debido al uso del valor absoluto, esta función de distribución no tiene forma acampanada, sino que presenta un pico, es decir, un punto en el que no se puede diferenciar, $x = \mu$, factor importante a tener en cuenta a la hora de tratar con esta función analíticamente. De igual forma, a la hora de integrar, dividiremos $\mathbb{R}$ en las dos semirrectas $\left(-\infty, \mu\right], \left[\mu, \infty\right)$.
+
+Con esta idea, veamos que la integral en la recta real de la función de densidad es $1$: 
 
 $$\int_{-\infty}^{\infty} L(x|\mu, b)dx = \int_{-\infty}^{\infty} \frac{1}{2b}e^\frac{-|x-\mu|}{b}dx =
 \frac{1}{2b}\int_{-\infty}^{\infty}e^\frac{-|x-\mu|}{b}dx = 
 \frac{1}{2b}\left( \int_{-\infty}^{\mu}e^\frac{-\mu+x}{b}dx + \int_{\mu}^{\infty}e^\frac{-x+\mu}{b}dx \right) =
 \frac{1}{2b}2b = 1$$
+ 
 
 \section{Función generatriz de momentos}
 
