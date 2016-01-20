@@ -70,10 +70,6 @@
 \parskip=8pt
 \linespread{1.05} % Change line spacing here, Palatino benefits from a slight increase by default
 
-% Contadores
-\newcounter{def}
-\newcounter{teo}
-
 \makeatletter
 
 \renewcommand{\maketitle}{ % Customize the title - do not edit title and author name here, see the TITLE block below
@@ -203,19 +199,16 @@ Luego el estimador máximo verosímil es:
 $$\hat{b} = \frac{\sum_{i=1}^{n}|x_i - \mu|}{n}$$
 
 \subsection{Insesgadez}
-\addtocounter{def}{1}
-\emph{Definición \arabic{def}}: Se denomina sesgo de un estimador a la diferencia entre la esperanza del estimador
+\emph{Definición}: Se denomina sesgo de un estimador a la diferencia entre la esperanza del estimador
 y el verdadero valor del parámetro a estimar. Diremos que un estimador es insesgado si su sesgo es nulo, por ser
 su esperanza igual al parámetro que se desea estimar.
 
 \subsection{Eficiencia}
-\addtocounter{def}{1}
-\emph{Definición \arabic{def}}: Un estimador $\hat{\theta}_1$ se dice que es más eficiente que otro estimador
+\emph{Definición}: Un estimador $\hat{\theta}_1$ se dice que es más eficiente que otro estimador
 $\hat{\theta}_2$, si la varianza del primero es menor que la del segundo, esto es,  $Var(\hat{\theta}_1)<Var(\hat{\theta}_2)$.
 
 \subsection{Consistencia}
-\addtocounter{teo}{1}
-\emph{Teorema \arabic{teo}}: Una condición suficiente para que $\hat{\theta}$ sea un estimador consistente es que
+\emph{Teorema}: Una condición suficiente para que $\hat{\theta}$ sea un estimador consistente es que
 dicho estimador tiene que verificar las dos condiciones que siguen:
 
 \begin{description}
@@ -226,7 +219,7 @@ dicho estimador tiene que verificar las dos condiciones que siguen:
 Cuando $n \rightarrow \infty$.
 
 \subsection{Suficiencia}
-\emph{Teorema \arabic{teo}}: Sean $X_1, X_2, ..., X_n$ variables aleatorias independientes con una función
+\emph{Teorema}: Sean $X_1, X_2, ..., X_n$ variables aleatorias independientes con una función
 distribución de distribución conjunta $f(x_1, x_2, ..., x_n | \theta)$ que depende del parámetro $\theta$.
 
 Entonces se dice que el estadístico $u(x_1, ..., x_n)$ es suficiente para $\theta$ si y solamente si
