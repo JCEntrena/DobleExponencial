@@ -263,6 +263,13 @@ $$E\left[\hat{\mu}\right] = E\left[\frac{\sum_{i=1}^{n}x_i}{n}\right] = \frac{1}
 \emph{Definición}: Un estimador $\hat{\theta}_1$ se dice que es más eficiente que otro estimador
 $\hat{\theta}_2$, si la varianza del primero es menor que la del segundo, esto es,  $Var(\hat{\theta}_1)<Var(\hat{\theta}_2)$.
 
+Sean n experimentos $x=(x_1,...x_n)$ independientes que siguen una distribución de Laplace de parámetros b y $\mu$, para que el
+estimador $\hat{\mu}$ sea eficiente tenemos que probar que:
+$$Var(\hat{\mu})=\frac{1}{nI(\mu)}$$
+
+$$Var(\hat{\mu}) = Var\left(\frac{\sum_{i=1}^{n}x_i}{n}\right) = \frac{1}{n^2}\sum_{i=1}^{n}Var(x_i) = \frac{n 2 b^2}{n^2} =
+\frac{2 b^2}{n}$$
+
 \subsection{Consistencia}
 \emph{Teorema}: Una condición suficiente para que $\hat{\theta}$ sea un estimador consistente es que
 dicho estimador tiene que verificar las dos condiciones que siguen:
@@ -272,6 +279,11 @@ dicho estimador tiene que verificar las dos condiciones que siguen:
 	\item $Var(\hat{\theta}) \rightarrow 0$
 	\item Cuando $n \rightarrow \infty$.
 \end{description}
+
+Como sabemos que el estimador es insesgado de $\mu$, sabemos que $E[\hat{\mu}] \rightarrow \mu$, como sabemos que su varianza
+es $Var(\hat{\mu}) = \frac{2 b^2}{n}$, podemos concluir que es consistente ya que:
+
+$$\lim\limits_{n \rightarrow \infty} Var(\hat{\mu}) = \lim\limits_{n \rightarrow \infty} \frac{2 b^2}{n} = 0$$
 
 \subsection{Suficiencia}
 \emph{Teorema}: Sean $X_1, X_2, ..., X_n$ variables aleatorias independientes con una función
