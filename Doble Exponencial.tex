@@ -111,7 +111,7 @@
 \section{Introducción}
 
 La distribución doble exponencial, también conocida como distribución de Laplace en honor al matemático
-Pierre-Simon Laplace, es una densidad de probabilidad continua con dominio en la recta real. Se obtiene
+Pierre-Simon Laplace, es una densidad de probabilidad continua con dominio en la recta real, la cual se obtiene
 reflejando la distribución exponencial alrededor de su media. Su función de densidad se asemeja la de la
 distribución normal, pero como considera el valor absoluto y no el cuadrado, las colas de la distribución
 irán a $0$ más lentamente. 
@@ -122,7 +122,7 @@ La función de densidad de la distribución doble exponencial es la siguiente:
 
 $$L(x|\mu, b)=\frac{1}{2b}e^\frac{-|x-\mu|}{b}$$
 
-En esta distribución, $\mu$ es un parámetro de localización, mientras que $b > 0$ es un parámetro de escala. 
+En esta distribución, $\mu$ es un parámetro de localización, mientras que $b > 0$ es un parámetro de escala. Lo comprobaremos más adelante con el cálculo de la esperanza y la varianza de la distribución. 
 
 Pese a sus similaridades con la distribución normal, debido al uso del valor absoluto, esta función de
 distribución no tiene forma acampanada, sino que presenta un pico, es decir, un punto en el que no se puede
@@ -281,7 +281,7 @@ $$E\left[\hat{b}\right] = E\left[\frac{\sum_{i=1}^{n}|x_i - \mu|}{n}\right] = \f
 \emph{Definición}: Un estimador $\hat{\theta}_1$ se dice que es más eficiente que otro estimador
 $\hat{\theta}_2$, si la varianza del primero es menor que la del segundo, esto es,  $Var(\hat{\theta}_1)<Var(\hat{\theta}_2)$.
 
-Sean n experimentos $x=(x_1,...x_n)$ independientes que siguen una distribución de Laplace de parámetros b y $\mu$, para que el
+Sean n experimentos $x=(x_1,...x_n)$ independientes que siguen una distribución de Laplace de parámetros $b$ y $\mu$. Para que el
 estimador $\hat{\mu}$ sea eficiente tenemos que probar que:
 $$Var(\hat{\mu})=\frac{1}{nI(\mu)}$$
 
@@ -297,8 +297,8 @@ dicho estimador tiene que verificar las dos condiciones que siguen:
 \begin{description}
 	\item $E[\hat{\theta}] \rightarrow \theta$
 	\item $Var(\hat{\theta}) \rightarrow 0$
-	\item Cuando $n \rightarrow \infty$.
 \end{description}
+Cuando $n \rightarrow \infty$.
 
 Como sabemos que el estimador es insesgado de $\mu$, sabemos que $E[\hat{\mu}] \rightarrow \mu$, como sabemos que su varianza
 es $Var(\hat{\mu}) = \frac{2 b^2}{n}$, podemos concluir que es consistente ya que:
