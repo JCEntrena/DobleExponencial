@@ -255,9 +255,13 @@ b e^{\frac{-x+\mu}{b}} \Big|^\infty_{\mu}\right) = \frac{1}{b^2}$
 y el verdadero valor del parámetro a estimar. Diremos que un estimador es insesgado si su sesgo es nulo, por ser
 su esperanza igual al parámetro que se desea estimar.
 
-Veamos que $E\left[\hat{\mu}\right]=\mu$
+Veamos que $\hat{\mu}$ es insesgado, es decir, que  $E\left[\hat{\mu}\right]=\mu$
 
 $$E\left[\hat{\mu}\right] = E\left[\frac{\sum_{i=1}^{n}x_i}{n}\right] = \frac{1}{n}E\left[\sum_{i=1}^{n}x_i\right] = \frac{1}{n}n\mu = \mu $$
+
+Veamos ahora que $\hat{b}$ no es insesgado. 
+
+$$E\left[\hat{b}\right] = E\left[\frac{\sum_{i=1}^{n}|x_i - \mu|}{n}\right] = \frac{1}{n}\sum_{i=1}^{n}E\left[|x_i - \mu|\right] \neq b$$ 
 
 \subsection{Eficiencia}
 \emph{Definición}: Un estimador $\hat{\theta}_1$ se dice que es más eficiente que otro estimador
@@ -266,6 +270,8 @@ $\hat{\theta}_2$, si la varianza del primero es menor que la del segundo, esto e
 Sean n experimentos $x=(x_1,...x_n)$ independientes que siguen una distribución de Laplace de parámetros b y $\mu$, para que el
 estimador $\hat{\mu}$ sea eficiente tenemos que probar que:
 $$Var(\hat{\mu})=\frac{1}{nI(\mu)}$$
+
+Veamos la demostración: 
 
 $$Var(\hat{\mu}) = Var\left(\frac{\sum_{i=1}^{n}x_i}{n}\right) = \frac{1}{n^2}\sum_{i=1}^{n}Var(x_i) = \frac{n 2 b^2}{n^2} =
 \frac{2 b^2}{n}$$
@@ -285,13 +291,5 @@ es $Var(\hat{\mu}) = \frac{2 b^2}{n}$, podemos concluir que es consistente ya qu
 
 $$\lim\limits_{n \rightarrow \infty} Var(\hat{\mu}) = \lim\limits_{n \rightarrow \infty} \frac{2 b^2}{n} = 0$$
 
-\subsection{Suficiencia}
-\emph{Teorema}: Sean $X_1, X_2, ..., X_n$ variables aleatorias independientes con una función
-distribución de distribución conjunta $f(x_1, x_2, ..., x_n | \theta)$ que depende del parámetro $\theta$.
-
-Entonces se dice que el estadístico $u(x_1, ..., x_n)$ es suficiente para $\theta$ si y solamente si
-$f(x_1, x_2,\dots, x_n | \theta)$ se puede factorizar de la siguiente forma:
-
-$$ f(x_1,...,x_n| \theta) = \Phi(u(x_1, ..., x_n) | \theta)\cdot h(x_1, ..., x_n) $$
 
 \end{document}
