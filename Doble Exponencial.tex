@@ -110,7 +110,11 @@
 
 \section{Introducción}
 
-La distribución doble exponencial, también conocida como distribución de Laplace en honor al matemático Pierre-Simon Laplace, es una densidad de probabilidad continua con dominio en la recta real. Se obtiene reflejando la distribución exponencial alrededor de su media. Su función de densidad se asemeja la de la distribución normal, pero como considera el valor absoluto y no el cuadrado, las colas de la distribución irán a $0$ más lentamente. 
+La distribución doble exponencial, también conocida como distribución de Laplace en honor al matemático
+Pierre-Simon Laplace, es una densidad de probabilidad continua con dominio en la recta real. Se obtiene
+reflejando la distribución exponencial alrededor de su media. Su función de densidad se asemeja la de la
+distribución normal, pero como considera el valor absoluto y no el cuadrado, las colas de la distribución
+irán a $0$ más lentamente. 
 
 \section{Función de densidad}
 
@@ -120,7 +124,11 @@ $$L(x|\mu, b)=\frac{1}{2b}e^\frac{-|x-\mu|}{b}$$
 
 En esta distribución, $\mu$ es un parámetro de localización, mientras que $b > 0$ es un parámetro de escala. 
 
-Pese a sus similaridades con la distribución normal, debido al uso del valor absoluto, esta función de distribución no tiene forma acampanada, sino que presenta un pico, es decir, un punto en el que no se puede diferenciar, $x = \mu$, factor importante a tener en cuenta a la hora de tratar con esta función analíticamente. De igual forma, a la hora de integrar, dividiremos $\mathbb{R}$ en las dos semirrectas $\left(-\infty, \mu\right], \left[\mu, \infty\right)$.
+Pese a sus similaridades con la distribución normal, debido al uso del valor absoluto, esta función de
+distribución no tiene forma acampanada, sino que presenta un pico, es decir, un punto en el que no se puede
+diferenciar, $x = \mu$, factor importante a tener en cuenta a la hora de tratar con esta función analíticamente.
+De igual forma, a la hora de integrar, dividiremos $\mathbb{R}$ en las dos semirrectas $\left(-\infty, \mu\right],
+\left[\mu, \infty\right)$.
 
 Con esta idea, veamos que la integral en la recta real de la función de densidad es $1$: 
 
@@ -171,21 +179,29 @@ $$\sigma^2=2b^2 + \mu^2 - \mu^2=2b^2$$
 
 \section{Estimador máximo verosimil}
 
-Consideremos ahora una muestra de tamaño $n$, resultado de n observaciones sobre un fenómeno modelado mediante una variable aleatoria que sigue una distribución doble exponencial $L(x|\mu, b)$. Denotamos la muestra como $x = \left(x_1, \dots x_n\right)$. La función de verosimilitud se define como: 
+Consideremos ahora una muestra de tamaño $n$, resultado de n observaciones sobre un fenómeno modelado
+mediante una variable aleatoria que sigue una distribución doble exponencial $L(x|\mu, b)$. Denotamos
+la muestra como $x = \left(x_1, \dots x_n\right)$. La función de verosimilitud se define como:
 
 $$l(x_1,...,x_n|\mu, b)=\prod_{i=1}^{n} L(x_i|\mu, b) = \left(\frac{1}{2b}\right)^n 
-e^{\left(-\frac{\sum_{i=1}^{n}|x_i-\mu|}{b}\right)}
-$$
-A partir de esta función, se define el estimador máximo verosímil de un parámetro como el valor que maximiza la función de verosimilitud. En este caso, al tratarse de una distribución de dos parámetros, calcularemos el estimador máximo verosímil de cada uno de ellos por separado, supuesto conocido el otro parámetro. 
+e^{\left(-\frac{\sum_{i=1}^{n}|x_i-\mu|}{b}\right)}$$
+
+A partir de esta función, se define el estimador máximo verosímil de un parámetro como el valor que
+maximiza la función de verosimilitud. En este caso, al tratarse de una distribución de dos parámetros,
+calcularemos el estimador máximo verosímil de cada uno de ellos por separado, supuesto conocido el otro parámetro. 
 
 Así, supuesto $b$ conocido, calculamos el estimador máximo verosímil de $\mu$. 
 
-Queremos maximizar la función de verosimilitud, para lo que debemos maximizar $e^{\left(-\frac{\sum_{i=1}^{n}|x_i-\mu|}{b}\right)}$, o equivalentemente, minimizar $\sum_{i=1}^{n}|x_i-\mu|$. Es conocido que la diferencia de valores absolutos se minimiza en la media de los $x_i$, luego podemos concluir que el estimador máximo verosímil para $\mu$ es la media de los $x_i$. 
+Queremos maximizar la función de verosimilitud, para lo que debemos maximizar $e^{\left(-\frac{\sum_{i=1}^{n}|x_i-\mu|}{b}\right)}$,
+o equivalentemente, minimizar $\sum_{i=1}^{n}|x_i-\mu|$. Es conocido que la diferencia de valores absolutos se minimiza
+en la media de los $x_i$, luego podemos concluir que el estimador máximo verosímil para $\mu$ es la media de los $x_i$. 
 
 $$\hat{\mu} = \frac{\sum_{i=1}^{n}x_i}{n}$$
 
 
-Calculamos ahora el estimador máximo verosímil para $b$. Para ello, tomamos el logaritmo de la función de verosimilitud, que no cambia el máximo de la función, y derivamos. 
+Calculamos ahora el estimador máximo verosímil para $b$. Para ello, tomamos el logaritmo de la función de verosimilitud,
+que no cambia el máximo de la función, y derivamos. 
+
 $$\frac{\partial \log L}{\partial b} = \log \left(\left(\frac{1}{2b}\right)^n 
 e^{\left(-\frac{\sum_{i=1}^{n}|x_i-\mu|}{b}\right)}\right)' = -\left(n\log 2b + \frac{\sum_{i=1}^{n}|x_i - \mu|}{b}\right)' = 
 -\frac{n}{b} + \frac{\sum_{i=1}^{n}|x_i - \mu|}{b^2}$$
