@@ -110,200 +110,203 @@
 
 \section{Introducción}
 
-La distribución doble exponencial, también conocida como distribución de Laplace en honor al matemático
-Pierre-Simon Laplace, es una densidad de probabilidad continua con dominio en la recta real, la cual se obtiene
-reflejando la distribución exponencial alrededor de su media. Su función de densidad se asemeja la de la
-distribución normal, pero como considera el valor absoluto y no el cuadrado, las colas de la distribución
-irán a $0$ más lentamente. 
+	La distribución doble exponencial, también conocida como distribución de Laplace en honor al matemático
+	Pierre-Simon Laplace, es una densidad de probabilidad continua con dominio en la recta real, la cual se obtiene
+	reflejando la distribución exponencial alrededor de su media. Su función de densidad se asemeja la de la
+	distribución normal, pero como considera el valor absoluto y no el cuadrado, las colas de la distribución
+	irán a $0$ más lentamente. 
 
 \section{Función de densidad}
 
-La función de densidad de la distribución doble exponencial es la siguiente: 
-
-$$L(x|\mu, b)=\frac{1}{2b}e^\frac{-|x-\mu|}{b}$$
-
-En esta distribución, $\mu$ es un parámetro de localización, mientras que $b > 0$ es un parámetro de escala. Lo comprobaremos más adelante con el cálculo de la esperanza y la varianza de la distribución. 
-
-Pese a sus similaridades con la distribución normal, debido al uso del valor absoluto, esta función de
-distribución no tiene forma acampanada, sino que presenta un pico, es decir, un punto en el que no se puede
-diferenciar, $x = \mu$, factor importante a tener en cuenta a la hora de tratar con esta función analíticamente.
-De igual forma, a la hora de integrar, dividiremos $\mathbb{R}$ en las dos semirrectas $\left(-\infty, \mu\right],
-\left[\mu, \infty\right)$.
-
-Con esta idea, veamos que la integral en la recta real de la función de densidad es $1$: 
-
-$$\int_{-\infty}^{\infty} L(x|\mu, b)dx = \int_{-\infty}^{\infty} \frac{1}{2b}e^\frac{-|x-\mu|}{b}dx =
-\frac{1}{2b}\int_{-\infty}^{\infty}e^\frac{-|x-\mu|}{b}dx = 
-\frac{1}{2b}\left( \int_{-\infty}^{\mu}e^\frac{-\mu+x}{b}dx + \int_{\mu}^{\infty}e^\frac{-x+\mu}{b}dx \right) =
-\frac{1}{2b}2b = 1$$
+	La función de densidad de la distribución doble exponencial es la siguiente: 
+	
+	$$L(x|\mu, b)=\frac{1}{2b}e^\frac{-|x-\mu|}{b}$$
+	
+	En esta distribución, $\mu$ es un parámetro de localización, mientras que $b > 0$ es un parámetro de escala.
+	Lo comprobaremos más adelante con el cálculo de la esperanza y la varianza de la distribución. 
+	
+	Pese a sus similaridades con la distribución normal, debido al uso del valor absoluto, esta función de
+	distribución no tiene forma acampanada, sino que presenta un pico, es decir, un punto en el que no se puede
+	diferenciar, $x = \mu$, factor importante a tener en cuenta a la hora de tratar con esta función analíticamente.
+	De igual forma, a la hora de integrar, dividiremos $\mathbb{R}$ en las dos semirrectas $\left(-\infty, \mu\right],
+	\left[\mu, \infty\right)$.
+	
+	Con esta idea, veamos que la integral en la recta real de la función de densidad es $1$: 
+	
+	$$\int_{-\infty}^{\infty} L(x|\mu, b)dx = \int_{-\infty}^{\infty} \frac{1}{2b}e^\frac{-|x-\mu|}{b}dx =
+	\frac{1}{2b}\int_{-\infty}^{\infty}e^\frac{-|x-\mu|}{b}dx = 
+	\frac{1}{2b}\left( \int_{-\infty}^{\mu}e^\frac{-\mu+x}{b}dx + \int_{\mu}^{\infty}e^\frac{-x+\mu}{b}dx \right) =
+	\frac{1}{2b}2b = 1$$
  
 
 \section{Función generatriz de momentos}
 
+	La función generatriz de momentos se define como sigue:
+	$$\phi(t)=E[e^{tX}], \quad t \in \left(\frac{-1}{b}, \frac{1}{b} \right)$$
+	
+	Que en nuestro caso da lugar a:\\
+	% Justificación encontrada en los puntos 7 y 24 de http://www.math.uah.edu/stat/special/Laplace.html
+	$\displaystyle \phi(t) = \int_{-\infty}^{\infty} e^{tx}\frac{1}{2b}e^\frac{-|x-\mu|}{b}dx = 
+	\frac{1}{2b}\left( \int_{-\infty}^{\mu} e^{tx} e^\frac{-\mu+x}{b}dx + \int_{\mu}^{\infty} e^{tx} e^\frac{-x+\mu}{b}dx \right) =
+	\frac{1}{2b} \bigg( \int_{-\infty}^{\mu} e^\frac{-\mu+x(bt+1)}{b}dx + \int_{\mu}^{\infty} e^\frac{\mu+x(bt-1)}{b}dx \bigg) =
+	\frac{1}{2b} e^{\mu t} \left(\frac{b}{bt+1} - \frac{b}{bt-1} \right) = 
+	\frac{1}{2b} e^{\mu t} \left(\frac{-2 b}{b^2t^2-1} \right) = \frac {e^{t\mu}} {1-b^2t^2}$
 
-La función generatriz de momentos se define como sigue:
-$$\phi(t)=E[e^{tX}], \quad t \in \left(\frac{-1}{b}, \frac{1}{b} \right)$$
-
-Que en nuestro caso da lugar a:\\
-% Justificación encontrada en los puntos 7 y 24 de http://www.math.uah.edu/stat/special/Laplace.html
-$\displaystyle \phi(t) = \int_{-\infty}^{\infty} e^{tx}\frac{1}{2b}e^\frac{-|x-\mu|}{b}dx = 
-\frac{1}{2b}\left( \int_{-\infty}^{\mu} e^{tx} e^\frac{-\mu+x}{b}dx + \int_{\mu}^{\infty} e^{tx} e^\frac{-x+\mu}{b}dx \right) =
-\frac{1}{2b} \bigg( \int_{-\infty}^{\mu} e^\frac{-\mu+x(bt+1)}{b}dx + \int_{\mu}^{\infty} e^\frac{\mu+x(bt-1)}{b}dx \bigg) =
-\frac{1}{2b} e^{\mu t} \left(\frac{b}{bt+1} - \frac{b}{bt-1} \right) = 
-\frac{1}{2b} e^{\mu t} \left(\frac{-2 b}{b^2t^2-1} \right) = \frac {e^{t\mu}} {1-b^2t^2}$
-
-\subsection{Esperanza}
-
-Para calcular la esperanza de la función de distribución, tomamos el momento de orden 1:
-
-$$\frac{\partial\phi}{\partial t} = \frac{e^{t\mu} (-t^2 b^2\mu + \mu + 2b^2t)}{(1-b^2 t^2)^2}$$
-
-Con $t = 0$, se tiene: 
-
-$$E[X]=\mu$$
-
-\subsection{Varianza}
-
-La varianza se puede expresar como $\sigma^2 = E[X^2] - E[X]^2$. Conocido el momento de orden 1, calculamos el de orden 2 usando
-la función generatriz de momentos:
-
-$$\frac{\partial^2\phi}{\partial t^2} = -\frac{e^{t\mu}(\mu^2(b^2 t^2 -1)^2 -4\mu b^2 t(b^2 t^2 -1)+2b^2(3b^2 t^2+1))}{(b^2 t^2 -1)^3}$$
-
-Evaluando en $t = 0$ tenemos
-
-$$E[X^2]=2b^2 + \mu^2$$
-
-Y la expresión de la varianza queda de la siguiente forma:
-
-$$\sigma^2=2b^2 + \mu^2 - \mu^2=2b^2$$
+	\subsection{Esperanza}
+	
+		Para calcular la esperanza de la función de distribución, tomamos el momento de orden 1:
+		
+		$$\frac{\partial\phi}{\partial t} = \frac{e^{t\mu} (-t^2 b^2\mu + \mu + 2b^2t)}{(1-b^2 t^2)^2}$$
+		
+		Con $t = 0$, se tiene: 
+		
+		$$E[X]=\mu$$
+	
+	\subsection{Varianza}
+	
+		La varianza se puede expresar como $\sigma^2 = E[X^2] - E[X]^2$. Conocido el momento de orden 1, calculamos el de
+		orden 2 usando la función generatriz de momentos:
+		
+		$$\frac{\partial^2\phi}{\partial t^2} = -\frac{e^{t\mu}(\mu^2(b^2 t^2 -1)^2 -4\mu b^2 t(b^2 t^2 -1)+2b^2(3b^2 t^2+1))}{(b^2 t^2 -1)^3}$$
+		
+		Evaluando en $t = 0$ tenemos
+		
+		$$E[X^2]=2b^2 + \mu^2$$
+		
+		Y la expresión de la varianza queda de la siguiente forma:
+		
+		$$\sigma^2=2b^2 + \mu^2 - \mu^2=2b^2$$
 
 \section{Familia exponencial}
 
-Buscamos una expresión de la función de densidad de la distribución doble exponencial, suponiendo conocido el parámetro $\mu$, de la forma: $$C\left(b\right)H(x)e^{\eta(b)T(x)}$$
+	Buscamos una expresión de la función de densidad de la distribución doble exponencial, suponiendo conocido el parámetro
+	$\mu$, de la forma:
+	
+	$$C\left(b\right)H(x)e^{\eta(b)T(x)}$$
+	
+	Para ello, consideraremos las siguientes funciones: 
 
-Para ello, consideraremos las siguientes funciones: 
-\begin{description}
-\item$C\left(b\right) = \frac{1}{2b} $
-\item$H(x) = 1$
-\item$T(x) = -|x-\mu|$
-\item$\eta(b) = \frac{1}{b}$
-\end{description}
+	\begin{description}
+		\item$C\left(b\right) = \frac{1}{2b} $
+		\item$H(x) = 1$
+		\item$T(x) = -|x-\mu|$
+		\item$\eta(b) = \frac{1}{b}$
+	\end{description}
+	
+	Por tanto la distribución de Laplace con media conocida pertenece a una familia exponencial. 
 
-Por tanto la distribución de Laplace con media conocida pertenece a una familia exponencial. 
+\section{Estimador máximo verosímil}
 
-\section{Estimador máximo verosimil}
-
-Consideremos ahora una muestra de tamaño $n$, resultado de n observaciones sobre un fenómeno modelado
-mediante una variable aleatoria que sigue una distribución doble exponencial $L(x|\mu, b)$. Denotamos
-la muestra como $x = \left(x_1, \dots x_n\right)$. La función de verosimilitud se define como:
-
-$$l(x_1,...,x_n|\mu, b)=\prod_{i=1}^{n} L(x_i|\mu, b) = \left(\frac{1}{2b}\right)^n 
-e^{\left(-\frac{\sum_{i=1}^{n}|x_i-\mu|}{b}\right)}$$
-
-A partir de esta función, se define el estimador máximo verosímil de un parámetro como el valor que
-maximiza la función de verosimilitud. En este caso, al tratarse de una distribución de dos parámetros,
-calcularemos el estimador máximo verosímil de cada uno de ellos por separado, supuesto conocido el otro parámetro. 
-
-Así, supuesto $b$ conocido, calculamos el estimador máximo verosímil de $\mu$. 
-
-Queremos maximizar la función de verosimilitud, para lo que debemos maximizar $e^{\left(-\frac{\sum_{i=1}^{n}|x_i-\mu|}{b}\right)}$,
-o equivalentemente, minimizar $\sum_{i=1}^{n}|x_i-\mu|$. Es conocido que la diferencia de valores absolutos se minimiza
-en la media de los $x_i$, luego podemos concluir que el estimador máximo verosímil para $\mu$ es la media de los $x_i$. 
-
-$$\hat{\mu} = \frac{\sum_{i=1}^{n}x_i}{n}$$
+	Consideremos ahora una muestra de tamaño $n$, resultado de n observaciones sobre un fenómeno modelado
+	mediante una variable aleatoria que sigue una distribución doble exponencial $L(x|\mu, b)$. Denotamos
+	la muestra como $x = \left(x_1, \dots x_n\right)$. La función de verosimilitud se define como:
+	
+	$$l(x_1,...,x_n|\mu, b)=\prod_{i=1}^{n} L(x_i|\mu, b) = \left(\frac{1}{2b}\right)^n 
+	e^{\left(-\frac{\sum_{i=1}^{n}|x_i-\mu|}{b}\right)}$$
+	
+	A partir de esta función, se define el estimador máximo verosímil de un parámetro como el valor que
+	maximiza la función de verosimilitud. En este caso, al tratarse de una distribución de dos parámetros,
+	calcularemos el estimador máximo verosímil de cada uno de ellos por separado, supuesto conocido el otro parámetro. 
+	
+	Así, supuesto $b$ conocido, calculamos el estimador máximo verosímil de $\mu$. 
+	
+	Queremos maximizar la función de verosimilitud, para lo que debemos maximizar $e^{\left(-\frac{\sum_{i=1}^{n}|x_i-\mu|}{b}\right)}$,
+	o equivalentemente, minimizar $\sum_{i=1}^{n}|x_i-\mu|$. Es conocido que la diferencia de valores absolutos se minimiza
+	en la media de los $x_i$, luego podemos concluir que el estimador máximo verosímil para $\mu$ es la media de los $x_i$. 
+	
+	$$\hat{\mu} = \frac{\sum_{i=1}^{n}x_i}{n}$$
 
 
-Calculamos ahora el estimador máximo verosímil para $b$. Para ello, tomamos el logaritmo de la función de verosimilitud,
-que no cambia el máximo de la función, y derivamos. 
-
-$$\frac{\partial \log L}{\partial b} = \log \left(\left(\frac{1}{2b}\right)^n 
-e^{\left(-\frac{\sum_{i=1}^{n}|x_i-\mu|}{b}\right)}\right)' = -\left(n\log 2b + \frac{\sum_{i=1}^{n}|x_i - \mu|}{b}\right)' = 
--\frac{n}{b} + \frac{\sum_{i=1}^{n}|x_i - \mu|}{b^2}$$
-
-Igualamos a 0 y tenemos que: 
-
-$$\frac{n}{b} = \frac{\sum_{i=1}^{n}|x_i - \mu|}{b^2} \iff b = \frac{\sum_{i=1}^{n}|x_i - \mu|}{n}$$
-
-Luego el estimador máximo verosímil es: 
-
-$$\hat{b} = \frac{\sum_{i=1}^{n}|x_i - \mu|}{n}$$
-
-\subsection{Información de Fisher}
-\emph{Definición}: Se denomina función $S(x,\theta)$ a la derivada parcial con respecto a $\theta$ del
-logaritmo natual de la función de verosimilitud.
-
-$$S(x,\theta) = \frac{\partial \log f(x;\theta)}{\partial \theta}$$
-
-\emph{Definición}: Se denomina información de Fisher con respecto a $\theta$ al segundo momento de la
-función $S(x,\theta)$.
-
-$$\mathcal{I}(\theta)=E\left[ S(x,\theta)^2 | \theta \right] = \int \left( \frac{\partial \log f(x;\theta)}
-{\partial \theta} \right) ^ 2 f(x;\theta) \; dx $$
-
-Ahora, vamos a calcular las funciones $S(x, b)$ y $S(x, \mu)$:
-
-$$ S(x, b) = \frac{\partial \log L}{\partial b} = \frac{\partial (-\log 2b -\frac{|x-\mu|}{b})}
-{\partial b} = \frac{-b+|x-\mu|}{b^2} $$
-
-$$ S(x, \mu) = \frac{\partial \log L}{\partial \mu} = \frac{\partial (-\log 2b -\frac{|x-\mu|}{b})}
-{\partial \mu} = \frac{(\mu-x)}{b|\mu-x|} $$
-
-En nuestro caso, tenemos que la información de Fisher respecto a $b$ es:
-
-$ \displaystyle \mathcal{I}(b) = \frac{1}{2b^5} \left(\int^\mu_{-\infty} \left( b^2+(x-\mu)^2-2b(\mu-x) \right) e^{\frac{-\mu+x}{b}} dx +
-\int^\infty_{\mu} \left( b^2+(x-\mu)^2-2b(x-\mu) \right) e^{\frac{-x+\mu}{b}} dx \right) =
-\frac{1}{2b^5} \bigg( (b^2+\mu^2-2b\mu) e^{\frac{-\mu+x}{b}} \Big|^\mu_{-\infty} +
-(-2b-2\mu) b (x-b) e^{\frac{-\mu+x}{b}} \Big|^\mu_{-\infty} + (b^2+x^2-2bx) e^{\frac{-\mu+x}{b}} \Big|^\mu_{-\infty} -
-(b^2+\mu^2+2b\mu) b e^{\frac{-x+\mu}{b}} \Big|^\infty_{\mu} - (-2b-2\mu) b (b+x) e^{\frac{-x+\mu}{b}} \Big|^\infty_{\mu} -
-( 2b^2+x^2-2bx\mu ) b \frac{-\mu+x}{b} \Big|^\infty_{\mu} = 0
-$
-
-Y la información de Fisher respecto a $\mu$:
-
-$ \displaystyle \mathcal{I}(\mu) = \frac{1}{2b^3} \left(\int^\mu_{-\infty} e^{\frac{-\mu+x}{b}} dx +
-\int^\infty_{\mu} e^{\frac{-x+\mu}{b}} dx \right) =  \frac{1}{2b^3} \left( b e^{\frac{-\mu+x}{b}} \Big|^\mu_{-\infty} -
-b e^{\frac{-x+\mu}{b}} \Big|^\infty_{\mu}\right) = \frac{1}{b^2}$
-
-\subsection{Insesgadez}
-\emph{Definición}: Se denomina sesgo de un estimador a la diferencia entre la esperanza del estimador
-y el verdadero valor del parámetro a estimar. Diremos que un estimador es insesgado si su sesgo es nulo, por ser
-su esperanza igual al parámetro que se desea estimar.
-
-Veamos que $\hat{\mu}$ es insesgado, es decir, que  $E\left[\hat{\mu}\right]=\mu$
-
-$$E\left[\hat{\mu}\right] = E\left[\frac{\sum_{i=1}^{n}x_i}{n}\right] = \frac{1}{n}E\left[\sum_{i=1}^{n}x_i\right] = \frac{1}{n}n\mu = \mu $$
-
-Veamos ahora que $\hat{b}$ no es insesgado. 
-
-$$E\left[\hat{b}\right] = E\left[\frac{\sum_{i=1}^{n}|x_i - \mu|}{n}\right] = \frac{1}{n}\sum_{i=1}^{n}E\left[|x_i - \mu|\right] \neq b$$ 
-
-\subsection{Eficiencia}
-\emph{Definición}: Un estimador $\hat{\theta}_1$ se dice que es más eficiente que otro estimador
-$\hat{\theta}_2$, si la varianza del primero es menor que la del segundo, esto es,  $Var(\hat{\theta}_1)<Var(\hat{\theta}_2)$.
-
-Sean n experimentos $x=(x_1,...x_n)$ independientes que siguen una distribución de Laplace de parámetros $b$ y $\mu$. Para que el
-estimador $\hat{\mu}$ sea eficiente tenemos que probar que:
-$$Var(\hat{\mu})=\frac{1}{nI(\mu)}$$
-
-Veamos la demostración: 
-
-$$Var(\hat{\mu}) = Var\left(\frac{\sum_{i=1}^{n}x_i}{n}\right) = \frac{1}{n^2}\sum_{i=1}^{n}Var(x_i) = \frac{n 2 b^2}{n^2} =
-\frac{2 b^2}{n}$$
-
-\subsection{Consistencia}
-\emph{Teorema}: Una condición suficiente para que $\hat{\theta}$ sea un estimador consistente es que
-dicho estimador tiene que verificar las dos condiciones que siguen:
-
-\begin{description}
-	\item $E[\hat{\theta}] \rightarrow \theta$
-	\item $Var(\hat{\theta}) \rightarrow 0$
-\end{description}
-Cuando $n \rightarrow \infty$.
-
-Como sabemos que el estimador es insesgado de $\mu$, sabemos que $E[\hat{\mu}] \rightarrow \mu$, como sabemos que su varianza
-es $Var(\hat{\mu}) = \frac{2 b^2}{n}$, podemos concluir que es consistente ya que:
-
-$$\lim\limits_{n \rightarrow \infty} Var(\hat{\mu}) = \lim\limits_{n \rightarrow \infty} \frac{2 b^2}{n} = 0$$
-
+	Calculamos ahora el estimador máximo verosímil para $b$. Para ello, tomamos el logaritmo de la función de verosimilitud,
+	que no cambia el máximo de la función, y derivamos. 
+	
+	$$\frac{\partial \log L}{\partial b} = \log \left(\left(\frac{1}{2b}\right)^n 
+	e^{\left(-\frac{\sum_{i=1}^{n}|x_i-\mu|}{b}\right)}\right)' = -\left(n\log 2b + \frac{\sum_{i=1}^{n}|x_i - \mu|}{b}\right)' = 
+	-\frac{n}{b} + \frac{\sum_{i=1}^{n}|x_i - \mu|}{b^2}$$
+	
+	Igualamos a 0 y tenemos que: 
+	
+	$$\frac{n}{b} = \frac{\sum_{i=1}^{n}|x_i - \mu|}{b^2} \iff b = \frac{\sum_{i=1}^{n}|x_i - \mu|}{n}$$
+	
+	Luego el estimador máximo verosímil es: 
+	
+	$$\hat{b} = \frac{\sum_{i=1}^{n}|x_i - \mu|}{n}$$
+	
+	\subsection{Información de Fisher}
+		\emph{Definición}: Se denomina función $S(x,\theta)$ a la derivada parcial con respecto a $\theta$ del
+		logaritmo natural de la función de verosimilitud.
+		
+		$$S(x,\theta) = \frac{\partial \log f(x;\theta)}{\partial \theta}$$
+		
+		\emph{Definición}: Se denomina información de Fisher con respecto a $\theta$ al segundo momento de la
+		función $S(x,\theta)$.
+		
+		$$\mathcal{I}(\theta)=E\left[ S(x,\theta)^2 | \theta \right] = \int \left( \frac{\partial \log f(x;\theta)}
+		{\partial \theta} \right) ^ 2 f(x;\theta) \; dx $$
+		
+		Ahora, vamos a calcular las funciones $S(x, b)$ y $S(x, \mu)$:
+		
+		$$ S(x, b) = \frac{\partial \log L}{\partial b} = \frac{\partial (-\log 2b -\frac{|x-\mu|}{b})}
+		{\partial b} = \frac{-b+|x-\mu|}{b^2} $$
+		
+		$$ S(x, \mu) = \frac{\partial \log L}{\partial \mu} = \frac{\partial (-\log 2b -\frac{|x-\mu|}{b})}
+		{\partial \mu} = \frac{(\mu-x)}{b|\mu-x|} $$
+		
+		En nuestro caso, tenemos que la información de Fisher respecto a $b$ es:
+		
+		$ \displaystyle \mathcal{I}(b) = \frac{1}{2b^5} \left(\int^\mu_{-\infty} \left( b^2+(x-\mu)^2-2b(\mu-x) \right) e^{\frac{-\mu+x}{b}} dx +
+		\int^\infty_{\mu} \left( b^2+(x-\mu)^2-2b(x-\mu) \right) e^{\frac{-x+\mu}{b}} dx \right) =
+		\frac{1}{2b^5} \bigg( (b^2+\mu^2-2b\mu) b e^{\frac{-\mu+x}{b}} \Big|^\mu_{-\infty} +
+		(2b-2\mu) b (x-b) e^{\frac{-\mu+x}{b}} \Big|^\mu_{-\infty} + b (x^2+2b^2-2bx) e^{\frac{-\mu+x}{b}} \Big|^\mu_{-\infty} - \\
+		(b^2+\mu^2+2b\mu) b e^{\frac{-x+\mu}{b}} \Big|^\infty_{\mu} - (-2b-2\mu) b (x+b) e^{\frac{-x+\mu}{b}} \Big|^\infty_{\mu} -
+		b (x^2+2b^2+2bx) e^{\frac{-x+\mu}{b}} \Big|^\infty_{\mu} \bigg)= \frac{1}{b^2}$
+		
+		Y la información de Fisher respecto a $\mu$:
+		
+		$ \displaystyle \mathcal{I}(\mu) = \frac{1}{2b^3} \left(\int^\mu_{-\infty} e^{\frac{-\mu+x}{b}} dx +
+		\int^\infty_{\mu} e^{\frac{-x+\mu}{b}} dx \right) =  \frac{1}{2b^3} \left( b e^{\frac{-\mu+x}{b}} \Big|^\mu_{-\infty} -
+		b e^{\frac{-x+\mu}{b}} \Big|^\infty_{\mu}\right) = \frac{1}{b^2}$
+		
+	\subsection{Insesgadez}
+		\emph{Definición}: Se denomina sesgo de un estimador a la diferencia entre la esperanza del estimador
+		y el verdadero valor del parámetro a estimar. Diremos que un estimador es insesgado si su sesgo es nulo, por ser
+		su esperanza igual al parámetro que se desea estimar.
+		
+		Veamos que $\hat{\mu}$ es insesgado, es decir, que  $E\left[\hat{\mu}\right]=\mu$
+		
+		$$E\left[\hat{\mu}\right] = E\left[\frac{\sum_{i=1}^{n}x_i}{n}\right] = \frac{1}{n}E\left[\sum_{i=1}^{n}x_i\right] =
+		\frac{1}{n}n\mu = \mu $$
+		
+		Veamos ahora que $\hat{b}$ no es insesgado. 
+		
+		$$E\left[\hat{b}\right] = E\left[\frac{\sum_{i=1}^{n}|x_i - \mu|}{n}\right] = \frac{1}{n}\sum_{i=1}^{n}E\left[|x_i - \mu|\right] \neq b$$ 
+	
+	\subsection{Eficiencia}
+		\emph{Definición}: Un estimador $\hat{\theta}_1$ se dice que es más eficiente que otro estimador
+		$\hat{\theta}_2$, si la varianza del primero es menor que la del segundo, esto es,  $Var(\hat{\theta}_1)<Var(\hat{\theta}_2)$.
+		
+		Sean n experimentos $x=(x_1,...x_n)$ independientes que siguen una distribución de Laplace de parámetros $b$ y $\mu$.
+		Para que el estimador $\hat{\mu}$ sea eficiente tenemos que probar que:
+		$$Var(\hat{\mu}) = \frac{1}{nI(\mu)}$$
+		
+		Veamos la demostración: 
+		
+		$$Var(\hat{\mu}) = Var\left(\frac{\sum_{i=1}^{n}x_i}{n}\right) = \frac{1}{n^2}\sum_{i=1}^{n}Var(x_i) = \frac{n b^2}{n^2} =
+		\frac{b^2}{n} =\frac{1}{nI(\mu)}$$
+	
+	\subsection{Consistencia}
+		\emph{Teorema}: Una condición suficiente para que $\hat{\theta}$ sea un estimador consistente es que
+		dicho estimador tiene que verificar las dos condiciones que siguen:
+	
+		\begin{description}
+			\item $E[\hat{\theta}] \rightarrow \theta$
+			\item $Var(\hat{\theta}) \rightarrow 0$
+		\end{description}
+		Cuando $n \rightarrow \infty$.
+	
+		Como sabemos que el estimador es insesgado de $\mu$, sabemos que $E[\hat{\mu}] \rightarrow \mu$, como sabemos que su
+		varianza es $Var(\hat{\mu}) = \frac{b^2}{n}$, podemos concluir que es consistente ya que:
+	
+		$$\lim\limits_{n \rightarrow \infty} Var(\hat{\mu}) = \lim\limits_{n \rightarrow \infty} \frac{b^2}{n} = 0$$
 
 \end{document}
